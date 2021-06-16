@@ -10,18 +10,20 @@ import { Ionicons } from "@expo/vector-icons";
 import SearchScreen from "../screens/SearchScreen";
 import AvoScreen from "../screens/AvoScreen";
 import AvoDetailScreen from "../screens/AvoDetailScreen";
+import StatsScreen from "../screens/StatsScreen";
 
 const SearchNavigator = createStackNavigator({
   Search: SearchScreen
 });
 
 const AvoNavigator = createStackNavigator({
-  Avo: AvoScreen
+  Avo: AvoScreen,
+  AvoDetail: AvoDetailScreen
 });
 
 const AvoDetailNavigator = createStackNavigator(
   {
-    AvoDetail: AvoDetailScreen
+    Stats: StatsScreen
   },
   {}
 );

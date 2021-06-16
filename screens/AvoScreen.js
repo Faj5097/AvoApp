@@ -1,10 +1,17 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
+import Card from "../components/Card";
+import CardSummary from "../components/CardSummary";
 
 const AvoScreen = (props) => {
   return (
     <View style={styles.screen}>
-      <Text>Avo Screen!</Text>
+      <View style={styles.rating}></View>
+      <View style={styles.score}>
+        <Card>
+          <CardSummary navigation={props.navigation} />
+        </Card>
+      </View>
     </View>
   );
 };
@@ -12,6 +19,15 @@ const AvoScreen = (props) => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
+    backgroundColor: "white"
+  },
+  rating: {
+    flex: 55
+  },
+  score: {
+    flex: 45,
+    borderTopColor: "lightgrey",
+    borderTopWidth: 2,
     justifyContent: "center",
     alignItems: "center"
   }
