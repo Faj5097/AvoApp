@@ -1,10 +1,13 @@
 import React from "react";
 import { View, Text, Button, StyleSheet } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
-import { AntDesign } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 
+import { AVOCADOS } from "../data/dummy-data";
+
 const CardSummary = (props) => {
+  const avocado = AVOCADOS.find((meal) => meal.id === "A1");
+
   return (
     <View style={styles.container}>
       <View style={styles.headerRow}>
@@ -18,7 +21,7 @@ const CardSummary = (props) => {
         <View style={styles.infoContainer}>
           <View style={styles.infoItem}>
             <Text style={{ fontSize: 12 }}>Country of Origin:</Text>
-            <Text style={{ fontSize: 18 }}>MEXICO</Text>
+            <Text style={{ fontSize: 18 }}>{avocado.origin.toUpper()}</Text>
           </View>
         </View>
         <View style={styles.status}>
@@ -32,7 +35,7 @@ const CardSummary = (props) => {
         <View style={styles.infoContainer}>
           <View style={styles.infoItem}>
             <Text style={{ fontSize: 12 }}>Gas emissions:</Text>
-            <Text style={{ fontSize: 18 }}>423,2g CO²</Text>
+            <Text style={{ fontSize: 18 }}>{avocado.emissions}g CO²</Text>
           </View>
         </View>
         <View style={styles.status}>
@@ -46,7 +49,7 @@ const CardSummary = (props) => {
         <View style={styles.infoContainer}>
           <View style={styles.infoItem}>
             <Text style={{ fontSize: 12 }}>Farming conditions:</Text>
-            <Text style={{ fontSize: 18 }}>Organic and Fair</Text>
+            <Text style={{ fontSize: 18 }}>{avocado.farming}</Text>
           </View>
         </View>
         <View style={styles.status}>

@@ -2,7 +2,11 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { FontAwesome5, Feather } from "@expo/vector-icons";
 
+import { AVOCADOS } from "../data/dummy-data";
+
 const CardDetailInfo = (props) => {
+  const avocado = AVOCADOS.find((meal) => meal.id === "A1");
+
   return (
     <View style={styles.detailInfo}>
       <View style={styles.left}>
@@ -15,18 +19,16 @@ const CardDetailInfo = (props) => {
       </View>
       <View style={styles.middle}>
         <View>
-          <Text style={styles.middleHeading}>Mexico</Text>
+          <Text style={styles.middleHeading}>{avocado.origin}</Text>
         </View>
         <View style={styles.middleContent}>
-          <Text style={styles.middleContentText}>
-            {"\u2022"} High Water Consumption
-          </Text>
-          <Text style={styles.middleContentText}>
-            {"\u2022"} Impact on geology
-          </Text>
-          <Text style={styles.middleContentText}>
-            {"\u2022"} Cartel involvement
-          </Text>
+          {avocado.originDesc.map((desc) => {
+            return (
+              <Text style={styles.middleContentText}>
+                {"\u2022"} {desc}
+              </Text>
+            );
+          })}
         </View>
       </View>
       <View style={styles.right}>
