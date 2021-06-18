@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
     borderColor: "darkgrey",
     borderWidth: 1,
     borderRadius: 15,
-    width: "80%",
+    width: "90%",
     height: 200,
     backgroundColor: "lightgrey",
     elevation: 5,

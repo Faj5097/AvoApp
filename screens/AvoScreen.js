@@ -3,11 +3,14 @@ import { View, Text, StyleSheet } from "react-native";
 
 import Card from "../components/Card";
 import CardSummary from "../components/CardSummary";
+import ScoreSummary from "../components/ScoreSummary";
 
 const AvoScreen = (props) => {
   return (
     <View style={styles.screen}>
-      <View style={styles.rating}></View>
+      <View style={styles.rating}>
+        <ScoreSummary />
+      </View>
       <View style={styles.score}>
         <Card>
           <CardSummary navigation={props.navigation} />
@@ -23,10 +26,10 @@ const styles = StyleSheet.create({
     backgroundColor: "white"
   },
   rating: {
-    flex: 55
+    flex: 60
   },
   score: {
-    flex: 45,
+    flex: 40,
     borderTopColor: "lightgrey",
     borderTopWidth: 2,
     justifyContent: "center",

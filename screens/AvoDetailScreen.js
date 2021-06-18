@@ -45,17 +45,20 @@ const AvoDetailScreen = (props) => {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
-    backgroundColor: "white"
+    backgroundColor: "white",
+    alignItems: "center"
   },
   header: {
-    flex: 1
+    flex: 1,
+    width: "90%"
   },
   cards: {
     flex: 8,
     borderTopColor: "lightgrey",
     borderTopWidth: 2,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "center",
+    width: "100%"
   }
 });
 
