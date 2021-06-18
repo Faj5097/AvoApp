@@ -4,7 +4,7 @@ export const AVOCADOS = [
   new Avocado(
     "A1",
     "Edeka",
-    "Hass",
+    "Organic Hass",
     64,
     4.3,
     0,
