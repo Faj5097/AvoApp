@@ -21,7 +21,7 @@ const CardSummary = (props) => {
         <View style={styles.infoContainer}>
           <View style={styles.infoItem}>
             <Text style={{ fontSize: 12 }}>Country of Origin:</Text>
-            <Text style={{ fontSize: 18 }}>{avocado.origin.toUpper()}</Text>
+            <Text style={{ fontSize: 18 }}>{avocado.origin}</Text>
           </View>
         </View>
         <View style={styles.status}>

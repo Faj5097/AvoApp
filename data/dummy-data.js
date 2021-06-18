@@ -1,4 +1,4 @@
-import Avocado from "../models/meal";
+import Avocado from "../models/avocado";
 
 export const AVOCADOS = [
   new Avocado(

@@ -2,16 +2,12 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 import { FontAwesome5, Feather } from "@expo/vector-icons";
 
-import { AVOCADOS } from "../data/dummy-data";
-
 const CardDetailInfo = (props) => {
-  const avocado = AVOCADOS.find((meal) => meal.id === "A1");
-
   return (
     <View style={styles.detailInfo}>
       <View style={styles.left}>
         <View style={styles.leftHeading}>
-          <Text>Country of Origin:</Text>
+          <Text>{props.leftTitle}</Text>
         </View>
         <View style={styles.leftContent}>
           <FontAwesome5 name="globe-americas" size={100} color="black" />
@@ -19,12 +15,12 @@ const CardDetailInfo = (props) => {
       </View>
       <View style={styles.middle}>
         <View>
-          <Text style={styles.middleHeading}>{avocado.origin}</Text>
+          <Text style={styles.middleHeading}>{props.middleTitle}</Text>
         </View>
         <View style={styles.middleContent}>
-          {avocado.originDesc.map((desc) => {
+          {props.description.map((desc) => {
             return (
-              <Text style={styles.middleContentText}>
+              <Text key={desc} style={styles.middleContentText}>
                 {"\u2022"} {desc}
               </Text>
             );
