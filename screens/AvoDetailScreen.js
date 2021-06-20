@@ -8,7 +8,8 @@ import StoreTitle from "../components/StoreTitle";
 import { AVOCADOS } from "../data/dummy-data";
 
 const AvoDetailScreen = (props) => {
-  const avocado = AVOCADOS.find((meal) => meal.id === "A1");
+  const avoId = props.navigation.getParam("avoId");
+  const avocado = AVOCADOS.find((avo) => avo.id === avoId);
 
   return (
     <View style={styles.screen}>
@@ -21,6 +22,7 @@ const AvoDetailScreen = (props) => {
             leftTitle="Country of Origin:"
             middleTitle={avocado.origin}
             description={avocado.originDesc}
+            imgSource={require(avocado.originImg)}
           />
         </Card>
         <Card style={{ height: 150 }}>
@@ -28,6 +30,7 @@ const AvoDetailScreen = (props) => {
             leftTitle="Gas emissions:"
             middleTitle={avocado.emissions + "g CO²"}
             description={avocado.emissionsDesc}
+            imgSource={require(avocado.emissionsImg)}
           />
         </Card>
         <Card style={{ height: 150 }}>
@@ -35,6 +38,7 @@ const AvoDetailScreen = (props) => {
             leftTitle="Farming:"
             middleTitle={avocado.farming}
             description={avocado.farmingDesc}
+            imgSource={require(avocado.farmingImg)}
           />
         </Card>
       </View>

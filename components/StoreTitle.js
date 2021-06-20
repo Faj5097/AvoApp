@@ -1,6 +1,8 @@
 import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
+import DefaultText from "./DefaultText";
+
 const StoreTitle = (props) => {
   return (
     <View style={styles.container}>
@@ -8,7 +10,7 @@ const StoreTitle = (props) => {
         <Text style={styles.store}>{props.store.toUpperCase() + " /"}</Text>
       </View>
       <View style={styles.companyContainer}>
-        <Text>{props.company}</Text>
+        <DefaultText>{props.company}</DefaultText>
       </View>
     </View>
   );
@@ -28,7 +30,8 @@ const styles = StyleSheet.create({
   },
   store: {
     fontSize: 30,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    fontFamily: "roboto-black"
   },
   companyContainer: {
     flex: 1,

@@ -1,14 +1,19 @@
 import React from "react";
 import { View, Text, StyleSheet, ImageBackground } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
+import { AnimatedCircularProgress } from "react-native-circular-progress";
 
+import Colors from "../constants/colors";
+import DefaultText from "./DefaultText";
 import StoreTitle from "./StoreTitle";
 import PersonalRating from "./PersonalRating";
 
 import { AVOCADOS } from "../data/dummy-data";
 
 const ScoreSummary = (props) => {
-  const avocado = AVOCADOS.find((meal) => meal.id === "A1");
+  const [avoAdded, setAvoAdded] = React.useState(false);
+
+  const avocado = AVOCADOS.find((meal) => meal.id === props.avoId);
 
   return (
     <View style={styles.container}>
@@ -17,8 +22,17 @@ const ScoreSummary = (props) => {
           <StoreTitle store={avocado.store} company={avocado.company} />
         </View>
         <View style={styles.iconContainer}>
-          <Ionicons name="ios-heart-outline" size={30} color="black" />
-          <Ionicons name="ios-add-circle-outline" size={30} color="black" />
+          <Ionicons
+            name="ios-heart-outline"
+            size={30}
+            color={Colors.brightGren}
+          />
+          <Ionicons
+            name={avoAdded ? "ios-checkmark" : "ios-add-circle-outline"}
+            size={30}
+            color={Colors.brightGren}
+            onPress={() => setAvoAdded(true)}
+          />
         </View>
       </View>
       <View style={styles.imageContainer}>
@@ -37,24 +51,106 @@ const ScoreSummary = (props) => {
         >
           <View style={styles.imageLeftOverlay}></View>
           <View style={styles.imageRightOverlay}>
-            <View style={styles.ecoScoreContainer}></View>
+            <View style={styles.ecoScoreContainer}>
+              <View style={styles.ecoScoreChart}>
+                <AnimatedCircularProgress
+                  size={80}
+                  width={12}
+                  fill={avocado.ecoScore}
+                  rotation={0}
+                  tintColor={Colors.scoreOrange}
+                >
+                  {() => (
+                    <View
+                      style={{
+                        flex: 1,
+                        backgroundColor: "white",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        width: "100%",
+                        opacity: 1
+                      }}
+                    >
+                      <DefaultText
+                        style={{
+                          fontSize: 18,
+                          fontWeight: "bold"
+                        }}
+                      >
+                        {avocado.ecoScore}%
+                      </DefaultText>
+                    </View>
+                  )}
+                </AnimatedCircularProgress>
+              </View>
+              <View style={styles.ecoScoreSubtitle}>
+                <DefaultText>Eco Score</DefaultText>
+              </View>
+            </View>
             <View style={styles.comRankContainer}>
               <View style={styles.comRankValueContainer}>
-                <Text style={{ fontWeight: "bold", fontSize: 35 }}>
+                <Text
+                  style={{
+                    fontWeight: "bold",
+                    fontSize: 35
+                  }}
+                >
                   {avocado.ecoComRank}
                 </Text>
               </View>
               <View style={styles.comRankStarsContainer}>
-                <Ionicons name="ios-star-outline" size={12} color="black" />
-                <Ionicons name="ios-star-outline" size={12} color="black" />
-                <Ionicons name="ios-star-outline" size={12} color="black" />
-                <Ionicons name="ios-star-outline" size={12} color="black" />
-                <Ionicons name="ios-star-outline" size={12} color="black" />
+                <Ionicons
+                  name={
+                    avocado.ecoComRank >= 1
+                      ? "ios-star-sharp"
+                      : "ios-star-outline"
+                  }
+                  size={12}
+                  color={Colors.brightGren}
+                />
+                <Ionicons
+                  name={
+                    avocado.ecoComRank >= 2
+                      ? "ios-star-sharp"
+                      : "ios-star-outline"
+                  }
+                  size={12}
+                  color={Colors.brightGren}
+                />
+                <Ionicons
+                  name={
+                    avocado.ecoComRank >= 3
+                      ? "ios-star-sharp"
+                      : "ios-star-outline"
+                  }
+                  size={12}
+                  color={Colors.brightGren}
+                />
+                <Ionicons
+                  name={
+                    avocado.ecoComRank >= 4
+                      ? "ios-star-sharp"
+                      : "ios-star-outline"
+                  }
+                  size={12}
+                  color={Colors.brightGren}
+                />
+                <Ionicons
+                  name={
+                    avocado.ecoComRank >= 5
+                      ? "ios-star-sharp"
+                      : "ios-star-outline"
+                  }
+                  size={12}
+                  color={Colors.brightGren}
+                />
               </View>
               <View style={styles.comRankDescContainer}>
-                <Text style={{ textAlign: "center", fontWeight: "bold" }}>
+                <DefaultText
+                  style={{ textAlign: "center", fontWeight: "bold" }}
+                >
                   {"Community " + "\n" + "Rating"}
-                </Text>
+                </DefaultText>
               </View>
             </View>
           </View>
@@ -70,7 +166,8 @@ const ScoreSummary = (props) => {
 styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center"
+    alignItems: "center",
+    backgroundColor: Colors.lightYellow
   },
   headerContainer: {
     flex: 4,
@@ -87,8 +184,8 @@ styles = StyleSheet.create({
   },
   imageRightOverlay: {
     borderRadius: 10,
-    backgroundColor: "yellow",
-    opacity: 0.7,
+    backgroundColor: "#ffb266cc",
+    opacity: 1,
     flex: 1,
     alignItems: "center"
   },
@@ -96,7 +193,18 @@ styles = StyleSheet.create({
     width: "90%",
     flex: 1,
     borderBottomColor: "black",
-    borderBottomWidth: 1
+    borderBottomWidth: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingBottom: 10
+  },
+  ecoScoreChart: {
+    flex: 6,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  ecoScoreSubtitle: {
+    flex: 1
   },
   comRankContainer: {
     width: "90%",

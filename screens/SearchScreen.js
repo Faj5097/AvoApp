@@ -1,10 +1,32 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Button, StyleSheet } from "react-native";
+import AvoScreen from "./AvoScreen";
 
 const SearchScreen = (props) => {
   return (
     <View style={styles.screen}>
-      <Text>Search Screen!</Text>
+      <Button
+        title="A1"
+        onPress={() =>
+          props.navigation.navigate({
+            routeName: "Avo",
+            params: {
+              avoId: "A1"
+            }
+          })
+        }
+      />
+      <Button
+        title="A2"
+        onPress={() =>
+          props.navigation.navigate({
+            routeName: "Avo",
+            params: {
+              avoId: "A2"
+            }
+          })
+        }
+      />
     </View>
   );
 };

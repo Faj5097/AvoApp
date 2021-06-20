@@ -4,9 +4,10 @@ import { Ionicons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 
 import { AVOCADOS } from "../data/dummy-data";
+import DefaultText from "./DefaultText";
 
 const CardSummary = (props) => {
-  const avocado = AVOCADOS.find((meal) => meal.id === "A1");
+  const avocado = AVOCADOS.find((meal) => meal.id === props.avoId);
 
   return (
     <View style={styles.container}>
@@ -20,7 +21,9 @@ const CardSummary = (props) => {
         </View>
         <View style={styles.infoContainer}>
           <View style={styles.infoItem}>
-            <Text style={{ fontSize: 12 }}>Country of Origin:</Text>
+            <DefaultText style={{ fontSize: 12 }}>
+              Country of Origin:
+            </DefaultText>
             <Text style={{ fontSize: 18 }}>{avocado.origin}</Text>
           </View>
         </View>
@@ -34,7 +37,7 @@ const CardSummary = (props) => {
         </View>
         <View style={styles.infoContainer}>
           <View style={styles.infoItem}>
-            <Text style={{ fontSize: 12 }}>Gas emissions:</Text>
+            <DefaultText style={{ fontSize: 12 }}>Gas emissions:</DefaultText>
             <Text style={{ fontSize: 18 }}>{avocado.emissions}g CO²</Text>
           </View>
         </View>
@@ -48,7 +51,9 @@ const CardSummary = (props) => {
         </View>
         <View style={styles.infoContainer}>
           <View style={styles.infoItem}>
-            <Text style={{ fontSize: 12 }}>Farming conditions:</Text>
+            <DefaultText style={{ fontSize: 12 }}>
+              Farming conditions:
+            </DefaultText>
             <Text style={{ fontSize: 18 }}>{avocado.farming}</Text>
           </View>
         </View>
@@ -57,7 +62,7 @@ const CardSummary = (props) => {
         </View>
       </View>
       <View style={styles.footer}>
-        <Text
+        <DefaultText
           style={{
             alignItems: "flex-start",
             justifyContent: "flex-start",
@@ -65,7 +70,7 @@ const CardSummary = (props) => {
           }}
         >
           More Information{" "}
-        </Text>
+        </DefaultText>
         <Ionicons
           name="ios-chevron-forward"
           size={13}
@@ -73,7 +78,10 @@ const CardSummary = (props) => {
           style={{ alignItems: "center", justifyContent: "center" }}
           onPress={() => {
             props.navigation.navigate({
-              routeName: "AvoDetail"
+              routeName: "AvoDetail",
+              params: {
+                avoId: props.avoId
+              }
             });
           }}
         />

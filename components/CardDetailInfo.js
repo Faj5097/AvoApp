@@ -1,8 +1,11 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 import { FontAwesome5, Feather } from "@expo/vector-icons";
 
+import DefaultText from "../components/DefaultText";
+
 const CardDetailInfo = (props) => {
+  console.log(props.imgSource);
   return (
     <View style={styles.detailInfo}>
       <View style={styles.left}>
@@ -10,7 +13,7 @@ const CardDetailInfo = (props) => {
           <Text>{props.leftTitle}</Text>
         </View>
         <View style={styles.leftContent}>
-          <FontAwesome5 name="globe-americas" size={100} color="black" />
+          <Image resizeMode="contain" source={props.imgSource} />
         </View>
       </View>
       <View style={styles.middle}>
@@ -20,9 +23,9 @@ const CardDetailInfo = (props) => {
         <View style={styles.middleContent}>
           {props.description.map((desc) => {
             return (
-              <Text key={desc} style={styles.middleContentText}>
+              <DefaultText key={desc} style={styles.middleContentText}>
                 {"\u2022"} {desc}
-              </Text>
+              </DefaultText>
             );
           })}
         </View>
@@ -56,7 +59,9 @@ const styles = StyleSheet.create({
     justifyContent: "center"
   },
   leftContent: {
-    flex: 5
+    flex: 5,
+    justifyContent: "center",
+    alignItems: "center"
   },
   middleHeading: {
     fontSize: 25,
