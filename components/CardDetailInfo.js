@@ -4,8 +4,22 @@ import { FontAwesome5, Feather } from "@expo/vector-icons";
 
 import DefaultText from "../components/DefaultText";
 
+function getImgSource(imgDesc) {
+  switch (imgDesc) {
+    case "A1_Farming":
+      return require("../assets/images/Farming_A1.png");
+    case "A1_Emission":
+      return require("../assets/images/Emission_A1.png");
+    case "A1_Origin":
+      return require("../assets/images/Origin_A1.png");
+    default:
+      return require("../assets/images/Origin_A1.png");
+  }
+}
+
 const CardDetailInfo = (props) => {
-  console.log(props.imgSource);
+  let imgSource = getImgSource(props.imgDesc);
+
   return (
     <View style={styles.detailInfo}>
       <View style={styles.left}>
@@ -13,7 +27,7 @@ const CardDetailInfo = (props) => {
           <Text>{props.leftTitle}</Text>
         </View>
         <View style={styles.leftContent}>
-          <Image resizeMode="contain" source={props.imgSource} />
+          <Image resizeMode="contain" source={imgSource} />
         </View>
       </View>
       <View style={styles.middle}>
