@@ -19,7 +19,6 @@ const viewMinY = (height - finderHeight) / 2;
 
 const SearchScreen = (props) => {
   const [hasPermission, setHasPermission] = useState(null);
-  const [type, setType] = useState(BarCodeScanner.Constants.Type.back);
   const [scanned, setScanned] = useState(false);
 
   useEffect(() => {
@@ -30,8 +29,14 @@ const SearchScreen = (props) => {
   }, []);
 
   const handleBarCodeScanned = ({ type, data }) => {
-    setScanned(true);
-    alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    // setScanned(true);
+    // alert(`Bar code with type ${type} and data ${data} has been scanned!`);
+    props.navigation.navigate({
+      routeName: "Avo",
+      params: {
+        avoId: data
+      }
+    });
   };
 
   if (hasPermission === null) {
@@ -45,12 +50,11 @@ const SearchScreen = (props) => {
   return (
     <View style={{ flex: 1 }}>
       <BarCodeScanner
-        onBarCodeScanned={handleBarCodeScanned}
-        type={type}
+        onBarCodeScanned={scanned ? undefined : handleBarCodeScanned}
         barCodeTypes={[BarCodeScanner.Constants.BarCodeType.qr]}
         style={[StyleSheet.absoluteFillObject, styles.container]}
       >
-        <View
+        {/* <View
           style={{
             flex: 1,
             backgroundColor: "transparent",
@@ -75,10 +79,13 @@ const SearchScreen = (props) => {
               Flip{" "}
             </Text>
           </TouchableOpacity>
-        </View>
+        </View> */}
         <BarcodeMask edgeColor="#62B1F6" showAnimatedLine />
         {scanned && (
-          <Button title="Scan Again" onPress={() => setScanned(false)} />
+          <Button
+            title={"Tap to Scan Again"}
+            onPress={() => setScanned(false)}
+          />
         )}
       </BarCodeScanner>
     </View>
