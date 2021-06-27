@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, Button, StyleSheet } from "react-native";
+import { View, Text, Button, StyleSheet, Alert } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 
@@ -9,11 +9,31 @@ import DefaultText from "./DefaultText";
 const CardSummary = (props) => {
   const avocado = AVOCADOS.find((meal) => meal.id === props.avoId);
 
+  const showEcoScoreAlert = () =>
+    Alert.alert(
+      "Eco Score Information",
+      "This is a detailed eco score alert",
+      [
+        {
+          text: "OK",
+          style: "default"
+        }
+      ],
+      {
+        cancelable: true
+      }
+    );
+
   return (
     <View style={styles.container}>
       <View style={styles.headerRow}>
         <Text>Eco Score</Text>
-        <Ionicons name="information-circle-outline" size={18} color="black" />
+        <Ionicons
+          name="information-circle-outline"
+          size={18}
+          color="black"
+          onPress={showEcoScoreAlert}
+        />
       </View>
       <View style={styles.component}>
         <View style={styles.icon}>

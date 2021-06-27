@@ -1,12 +1,27 @@
-import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import React, { useState } from "react";
+import { View, Text, StyleSheet, Alert } from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 
 import DefaultText from "./DefaultText";
 import Colors from "../constants/colors";
 
 const PersonalRating = (props) => {
-  const [persRank, setPersRank] = React.useState(0);
+  const [persRank, setPersRank] = useState(0);
+
+  const showRankingAlert = () =>
+    Alert.alert(
+      "Ranking Information",
+      "This is a detailed ranking information",
+      [
+        {
+          text: "OK",
+          style: "default"
+        }
+      ],
+      {
+        cancelable: true
+      }
+    );
 
   return (
     <View style={styles.container}>
@@ -50,6 +65,7 @@ const PersonalRating = (props) => {
           name="ios-information-circle-outline"
           size={24}
           color="black"
+          onPress={showRankingAlert}
         />
       </View>
     </View>
