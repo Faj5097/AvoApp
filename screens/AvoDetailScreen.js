@@ -23,6 +23,7 @@ const AvoDetailScreen = (props) => {
             middleTitle={avocado.origin}
             description={avocado.originDesc}
             imgDesc={avocado.originImg}
+            light={avocado.originLight}
           />
         </Card>
         <Card style={{ height: 150 }}>
@@ -31,6 +32,7 @@ const AvoDetailScreen = (props) => {
             middleTitle={avocado.emissions + "g CO²"}
             description={avocado.emissionsDesc}
             imgDesc={avocado.emissionsImg}
+            light={avocado.emissionsLight}
           />
         </Card>
         <Card style={{ height: 150 }}>
@@ -39,6 +41,7 @@ const AvoDetailScreen = (props) => {
             middleTitle={avocado.farming}
             description={avocado.farmingDesc}
             imgDesc={avocado.farmingImg}
+            light={avocado.farmingLight}
           />
         </Card>
       </View>

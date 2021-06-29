@@ -5,9 +5,23 @@ import { Feather } from "@expo/vector-icons";
 
 import { AVOCADOS } from "../data/dummy-data";
 import DefaultText from "./DefaultText";
+import { Colors } from "../constants/colors";
 
 const CardSummary = (props) => {
   const avocado = AVOCADOS.find((meal) => meal.id === props.avoId);
+
+  const getColor = (color) => {
+    switch (color) {
+      case "scoreRed":
+        return "#e85838";
+      case "scoreOrange":
+        return "#FFC759";
+      case "scoreGreen":
+        return "#39BA5D";
+      default:
+        return "white";
+    }
+  };
 
   const showEcoScoreAlert = () =>
     Alert.alert(
@@ -48,7 +62,12 @@ const CardSummary = (props) => {
           </View>
         </View>
         <View style={styles.status}>
-          <Feather name="circle" size={15} color="white" />
+          <View
+            style={{
+              ...styles.circle,
+              backgroundColor: getColor(avocado.originLight)
+            }}
+          ></View>
         </View>
       </View>
       <View style={styles.component}>
@@ -62,7 +81,12 @@ const CardSummary = (props) => {
           </View>
         </View>
         <View style={styles.status}>
-          <Feather name="circle" size={15} color="white" />
+          <View
+            style={{
+              ...styles.circle,
+              backgroundColor: getColor(avocado.emissionsLight)
+            }}
+          ></View>
         </View>
       </View>
       <View style={styles.component}>
@@ -78,7 +102,12 @@ const CardSummary = (props) => {
           </View>
         </View>
         <View style={styles.status}>
-          <Feather name="circle" size={15} color="white" />
+          <View
+            style={{
+              ...styles.circle,
+              backgroundColor: getColor(avocado.farmingLight)
+            }}
+          ></View>
         </View>
       </View>
       <View style={styles.footer}>
@@ -142,6 +171,14 @@ const styles = StyleSheet.create({
   status: {
     flex: 2,
     justifyContent: "center"
+  },
+  circle: {
+    justifyContent: "flex-start",
+    width: 16,
+    height: 16,
+    borderRadius: 8,
+    borderColor: "white",
+    borderWidth: 2
   },
   footer: {
     flex: 2,

@@ -17,6 +17,19 @@ function getImgSource(imgDesc) {
   }
 }
 
+const getColor = (color) => {
+  switch (color) {
+    case "scoreRed":
+      return "#e85838";
+    case "scoreOrange":
+      return "#FFC759";
+    case "scoreGreen":
+      return "#39BA5D";
+    default:
+      return "white";
+  }
+};
+
 const CardDetailInfo = (props) => {
   let imgSource = getImgSource(props.imgDesc);
 
@@ -45,7 +58,12 @@ const CardDetailInfo = (props) => {
         </View>
       </View>
       <View style={styles.right}>
-        <Feather name="circle" size={20} color="white" />
+        <View
+          style={{
+            ...styles.circle,
+            backgroundColor: getColor(props.light)
+          }}
+        ></View>
       </View>
     </View>
   );
@@ -66,7 +84,8 @@ const styles = StyleSheet.create({
     marginLeft: 5
   },
   right: {
-    flex: 1
+    flex: 1,
+    alignItems: "flex-end"
   },
   leftHeading: {
     flex: 1,
@@ -83,13 +102,21 @@ const styles = StyleSheet.create({
   },
   middleContent: {
     flex: 5,
-    paddingLeft: 10,
-    paddingTop: 10
+    paddingLeft: 10
   },
   middleContentText: {
     flex: 1,
     paddingLeft: 5,
+    paddingTop: 10,
     fontSize: 10
+  },
+  circle: {
+    justifyContent: "flex-start",
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    borderColor: "white",
+    borderWidth: 2
   }
 });
 

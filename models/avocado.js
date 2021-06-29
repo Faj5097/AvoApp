@@ -9,12 +9,15 @@ class Avocado {
     origin,
     originDesc,
     originImg,
+    originLight,
     emissions,
     emissionsDesc,
     emissionsImg,
+    emissionsLight,
     farming,
     farmingDesc,
-    farmingImg
+    farmingImg,
+    farmingLight
   ) {
     this.id = id;
     this.store = store;
@@ -25,12 +28,15 @@ class Avocado {
     this.origin = origin;
     this.originDesc = originDesc;
     this.originImg = originImg;
+    this.originLight = originLight;
     this.emissions = emissions;
     this.emissionsDesc = emissionsDesc;
     this.emissionsImg = emissionsImg;
+    this.emissionsLight = emissionsLight;
     this.farming = farming;
     this.farmingDesc = farmingDesc;
     this.farmingImg = farmingImg;
+    this.farmingLight = farmingLight;
   }
 }
 
