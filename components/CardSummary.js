@@ -1,11 +1,17 @@
 import React from "react";
-import { View, Text, Button, StyleSheet, Alert } from "react-native";
+import {
+  View,
+  Text,
+  Button,
+  StyleSheet,
+  Alert,
+  TouchableOpacity
+} from "react-native";
 import { Ionicons } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";
 
 import { AVOCADOS } from "../data/dummy-data";
 import DefaultText from "./DefaultText";
-import { Colors } from "../constants/colors";
 
 const CardSummary = (props) => {
   const avocado = AVOCADOS.find((meal) => meal.id === props.avoId);
@@ -110,7 +116,17 @@ const CardSummary = (props) => {
           ></View>
         </View>
       </View>
-      <View style={styles.footer}>
+      <TouchableOpacity
+        style={styles.footer}
+        onPress={() => {
+          props.navigation.navigate({
+            routeName: "AvoDetail",
+            params: {
+              avoId: props.avoId
+            }
+          });
+        }}
+      >
         <DefaultText
           style={{
             alignItems: "flex-start",
@@ -125,16 +141,8 @@ const CardSummary = (props) => {
           size={13}
           color="black"
           style={{ alignItems: "center", justifyContent: "center" }}
-          onPress={() => {
-            props.navigation.navigate({
-              routeName: "AvoDetail",
-              params: {
-                avoId: props.avoId
-              }
-            });
-          }}
         />
-      </View>
+      </TouchableOpacity>
     </View>
   );
 };

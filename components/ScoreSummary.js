@@ -31,7 +31,10 @@ const ScoreSummary = (props) => {
             name={avoAdded ? "ios-checkmark" : "ios-add-circle-outline"}
             size={30}
             color={Colors.brightGren}
-            onPress={() => setAvoAdded(true)}
+            onPress={() => {
+              setAvoAdded(!avoAdded);
+              props.showModal();
+            }}
           />
         </View>
       </View>
