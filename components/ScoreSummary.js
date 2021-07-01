@@ -11,7 +11,8 @@ import PersonalRating from "./PersonalRating";
 import { AVOCADOS } from "../data/dummy-data";
 
 const ScoreSummary = (props) => {
-  const [avoAdded, setAvoAdded] = React.useState(false);
+  const [avoAddedStats, setAvoAddedStats] = React.useState(false);
+  const [avoAddedFavorites, setAvoAddedFavorites] = React.useState(false);
 
   const avocado = AVOCADOS.find((meal) => meal.id === props.avoId);
 
@@ -23,17 +24,21 @@ const ScoreSummary = (props) => {
         </View>
         <View style={styles.iconContainer}>
           <Ionicons
-            name="ios-heart-outline"
-            size={30}
-            color={Colors.brightGren}
-          />
-          <Ionicons
-            name={avoAdded ? "ios-checkmark" : "ios-add-circle-outline"}
+            name={avoAddedFavorites ? "ios-heart-sharp" : "ios-heart-outline"}
             size={30}
             color={Colors.brightGren}
             onPress={() => {
-              setAvoAdded(!avoAdded);
-              props.showModal();
+              setAvoAddedFavorites(!avoAddedFavorites);
+              props.showModalFavorites(!avoAddedFavorites);
+            }}
+          />
+          <Ionicons
+            name={avoAddedStats ? "ios-checkmark" : "ios-add-circle-outline"}
+            size={30}
+            color={Colors.brightGren}
+            onPress={() => {
+              setAvoAddedStats(!avoAddedStats);
+              props.showModalStats(!avoAddedStats);
             }}
           />
         </View>

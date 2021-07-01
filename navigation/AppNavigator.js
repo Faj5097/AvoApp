@@ -38,7 +38,9 @@ const StatsNavigator = createStackNavigator(
   {
     Stats: StatsScreen
   },
-  {}
+  {
+    defaultNavigationOptions: defaultStackNavOptions
+  }
 );
 
 const MainNavigator = createBottomTabNavigator(

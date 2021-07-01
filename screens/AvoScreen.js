@@ -11,15 +11,62 @@ import HeaderButton from "../components/HeaderButton";
 const AvoScreen = (props) => {
   const avoId = props.navigation.getParam("avoId");
 
-  const [modalVisible, setModalVisible] = useState(false);
-  const [avoAdded, setAvoAdded] = useState(false);
+  const [modalStatsVisible, setModalStatsVisible] = useState(false);
+  const [modalFavoritesVisible, setModalFavoritesVisible] = useState(false);
+  const [avoAddedStats, setAvoAddedStats] = useState(false);
+  const [avoAddedFavorites, setAvoAddedFavorites] = useState(false);
 
-  const handleModalAdded = (added) => {
-    setAvoAdded(added);
-    setModalVisible(true);
+  const handleModalAddedToStats = (added) => {
+    setAvoAddedStats(added);
+    setAvoAddedFavorites(added);
+    setModalStatsVisible(true);
     setTimeout(() => {
-      setModalVisible(false);
+      setModalStatsVisible(false);
     }, 700);
+  };
+
+  const handleModalAddedToFavorites = (added) => {
+    setAvoAddedFavorites(added);
+    setModalFavoritesVisible(true);
+    setTimeout(() => {
+      setModalFavoritesVisible(false);
+    }, 700);
+  };
+
+  const modalViewStats = () => {
+    if (avoAddedStats) {
+      return (
+        <View style={styles.modalView}>
+          <Text style={styles.modalText}>Avo added to stock!</Text>
+          <Ionicons name="checkmark-circle-outline" size={40} color="black" />
+        </View>
+      );
+    } else {
+      return (
+        <View style={styles.modalView}>
+          <Text style={styles.modalText}>Avo deleted from stock!</Text>
+          <Ionicons name="close-circle-outline" size={40} color="black" />
+        </View>
+      );
+    }
+  };
+
+  const modalViewFavorite = () => {
+    if (avoAddedFavorites) {
+      return (
+        <View style={styles.modalView}>
+          <Text style={styles.modalText}>Avo added to favorites!</Text>
+          <Ionicons name="ios-heart-sharp" size={40} color="black" />
+        </View>
+      );
+    } else {
+      return (
+        <View style={styles.modalView}>
+          <Text style={styles.modalText}>Avo deleted from favorites!</Text>
+          <Ionicons name="ios-heart-outline" size={40} color="black" />
+        </View>
+      );
+    }
   };
 
   return (
@@ -27,21 +74,31 @@ const AvoScreen = (props) => {
       <Modal
         animationType="fade"
         transparent={true}
-        visible={modalVisible}
+        visible={modalStatsVisible}
         onRequestClose={() => {
           Alert.alert("Modal has been closed.");
-          setModalVisible(!modalVisible);
+          setModalStatsVisible(!modalVisible);
         }}
       >
-        <View style={styles.centeredView}>
-          <View style={styles.modalView}>
-            <Text style={styles.modalText}>Avo added!</Text>
-            <Ionicons name="checkmark-circle-outline" size={40} color="black" />
-          </View>
-        </View>
+        <View style={styles.centeredView}>{modalViewStats()}</View>
+      </Modal>
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalFavoritesVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalFavoritesVisible(!modalVisible);
+        }}
+      >
+        <View style={styles.centeredView}>{modalViewFavorite()}</View>
       </Modal>
       <View style={styles.rating}>
-        <ScoreSummary avoId={avoId} showModal={handleModalAdded} />
+        <ScoreSummary
+          avoId={avoId}
+          showModalStats={handleModalAddedToStats}
+          showModalFavorites={handleModalAddedToFavorites}
+        />
       </View>
       <View style={styles.score}>
         <Card>

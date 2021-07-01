@@ -1,10 +1,13 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
 
 const StatsScreen = (props) => {
   return (
     <View style={styles.screen}>
-      <Text>Stats Screen!</Text>
+      <Image
+        resizeMode="stretch"
+        source={require("../assets/images/Stats.png")}
+      />
     </View>
   );
 };
