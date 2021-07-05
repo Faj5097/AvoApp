@@ -51,7 +51,7 @@ const ScoreSummary = (props) => {
           style={{
             width: "100%",
             height: "100%",
-            borderRadius: 10,
+            borderRadius: 20,
             resizeMode: "cover",
             overflow: "hidden",
             flexDirection: "row"
@@ -191,9 +191,9 @@ styles = StyleSheet.create({
     flex: 2
   },
   imageRightOverlay: {
-    borderRadius: 10,
-    backgroundColor: "#ffb266cc",
-    opacity: 1,
+    borderRadius: 20,
+    backgroundColor: "#d3d3d3",
+    opacity: 0.9,
     flex: 1,
     alignItems: "center"
   },

@@ -22,9 +22,9 @@ const styles = StyleSheet.create({
     flexDirection: "row"
   },
   storeContainer: {
-    flex: 1,
     justifyContent: "flex-end",
     alignItems: "flex-end",
+    paddingLeft: 10,
     marginRight: 10,
     marginBottom: 10
   },

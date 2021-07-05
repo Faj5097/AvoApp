@@ -73,7 +73,7 @@ const styles = StyleSheet.create({
   detailInfo: {
     flex: 1,
     flexDirection: "row",
-    padding: 5
+    padding: 10
   },
   left: {
     flex: 5,
@@ -89,26 +89,27 @@ const styles = StyleSheet.create({
   },
   leftHeading: {
     flex: 1,
-    justifyContent: "center"
+    width: "100%",
+    paddingLeft: 10
   },
   leftContent: {
     flex: 5,
     justifyContent: "center",
     alignItems: "center"
+    // backgroundColor: "blue"
   },
   middleHeading: {
     fontSize: 25,
-    fontWeight: "bold"
+    fontWeight: "bold",
+    justifyContent: "flex-end"
   },
   middleContent: {
-    flex: 5,
-    paddingLeft: 10
+    flex: 5
   },
   middleContentText: {
     flex: 1,
-    paddingLeft: 5,
     paddingTop: 10,
-    fontSize: 10
+    fontSize: 12
   },
   circle: {
     justifyContent: "flex-start",

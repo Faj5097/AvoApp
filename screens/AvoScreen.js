@@ -1,5 +1,12 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, Modal, Pressable } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Modal,
+  Pressable,
+  ScrollView
+} from "react-native";
 import { HeaderButtons, Item } from "react-navigation-header-buttons";
 import { Ionicons } from "@expo/vector-icons";
 

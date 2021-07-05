@@ -1,5 +1,5 @@
 import React from "react";
-import { View, Text, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, ScrollView } from "react-native";
 
 import CardDetailInfo from "../components/CardDetailInfo";
 import Card from "../components/Card";
@@ -12,40 +12,42 @@ const AvoDetailScreen = (props) => {
   const avocado = AVOCADOS.find((avo) => avo.id === avoId);
 
   return (
-    <View style={styles.screen}>
-      <View style={styles.header}>
-        <StoreTitle store={avocado.store} company={avocado.company} />
+    <ScrollView style={{ width: "100%", backgroundColor: "white" }}>
+      <View style={styles.screen}>
+        <View style={styles.header}>
+          <StoreTitle store={avocado.store} company={avocado.company} />
+        </View>
+        <View style={styles.cards}>
+          <Card style={{ height: 170, marginVertical: 10 }}>
+            <CardDetailInfo
+              leftTitle="Country of Origin:"
+              middleTitle={avocado.origin}
+              description={avocado.originDesc}
+              imgDesc={avocado.originImg}
+              light={avocado.originLight}
+            />
+          </Card>
+          <Card style={{ height: 170, marginVertical: 10 }}>
+            <CardDetailInfo
+              leftTitle="Gas emissions:"
+              middleTitle={avocado.emissions + "g CO²"}
+              description={avocado.emissionsDesc}
+              imgDesc={avocado.emissionsImg}
+              light={avocado.emissionsLight}
+            />
+          </Card>
+          <Card style={{ height: 170, marginVertical: 10 }}>
+            <CardDetailInfo
+              leftTitle="Farming:"
+              middleTitle={avocado.farming}
+              description={avocado.farmingDesc}
+              imgDesc={avocado.farmingImg}
+              light={avocado.farmingLight}
+            />
+          </Card>
+        </View>
       </View>
-      <View style={styles.cards}>
-        <Card style={{ height: 150 }}>
-          <CardDetailInfo
-            leftTitle="Country of Origin:"
-            middleTitle={avocado.origin}
-            description={avocado.originDesc}
-            imgDesc={avocado.originImg}
-            light={avocado.originLight}
-          />
-        </Card>
-        <Card style={{ height: 150 }}>
-          <CardDetailInfo
-            leftTitle="Gas emissions:"
-            middleTitle={avocado.emissions + "g CO²"}
-            description={avocado.emissionsDesc}
-            imgDesc={avocado.emissionsImg}
-            light={avocado.emissionsLight}
-          />
-        </Card>
-        <Card style={{ height: 150 }}>
-          <CardDetailInfo
-            leftTitle="Farming:"
-            middleTitle={avocado.farming}
-            description={avocado.farmingDesc}
-            imgDesc={avocado.farmingImg}
-            light={avocado.farmingLight}
-          />
-        </Card>
-      </View>
-    </View>
+    </ScrollView>
   );
 };
 
@@ -57,7 +59,8 @@ const styles = StyleSheet.create({
   },
   header: {
     flex: 1,
-    width: "90%"
+    width: "90%",
+    padding: 10
   },
   cards: {
     flex: 8,

@@ -63,7 +63,7 @@ const PersonalRating = (props) => {
       <View style={styles.infoContainer}>
         <Ionicons
           name="ios-information-circle-outline"
-          size={24}
+          size={20}
           color="black"
           onPress={showRankingAlert}
         />
@@ -90,7 +90,7 @@ const styles = StyleSheet.create({
   infoContainer: {
     flex: 2,
     alignItems: "flex-end",
-    marginRight: 5
+    marginRight: 15
   }
 });
 

@@ -47,10 +47,16 @@ const CardSummary = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.headerRow}>
-        <Text>Eco Score</Text>
+        <DefaultText
+          style={{
+            fontSize: 15
+          }}
+        >
+          Eco Score
+        </DefaultText>
         <Ionicons
           name="information-circle-outline"
-          size={18}
+          size={20}
           color="black"
           onPress={showEcoScoreAlert}
         />
@@ -131,14 +137,14 @@ const CardSummary = (props) => {
           style={{
             alignItems: "flex-start",
             justifyContent: "flex-start",
-            fontSize: 10
+            fontSize: 15
           }}
         >
           More Information{" "}
         </DefaultText>
         <Ionicons
           name="ios-chevron-forward"
-          size={13}
+          size={20}
           color="black"
           style={{ alignItems: "center", justifyContent: "center" }}
         />
@@ -149,7 +155,8 @@ const CardSummary = (props) => {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1
+    flex: 1,
+    marginLeft: 10
   },
   headerRow: {
     flexDirection: "row",
@@ -182,9 +189,9 @@ const styles = StyleSheet.create({
   },
   circle: {
     justifyContent: "flex-start",
-    width: 16,
-    height: 16,
-    borderRadius: 8,
+    width: 20,
+    height: 20,
+    borderRadius: 20,
     borderColor: "white",
     borderWidth: 2
   },
@@ -193,7 +200,8 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "flex-end",
     flexDirection: "row",
-    marginRight: 15
+    marginRight: 15,
+    marginBottom: 10
   }
 });
 

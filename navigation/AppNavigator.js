@@ -15,9 +15,7 @@ const defaultStackNavOptions = {
     fontFamily: "roboto-bold",
     fontSize: 35
   },
-  headerBackTitleStyle: {
-    fontFamily: "roboto-regular"
-  },
+  headerBackTitleVisible: false,
   headerTintColor: Colors.brightGren,
   headerTitle: "AvoCheck"
 };

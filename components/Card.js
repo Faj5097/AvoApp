@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
   card: {
     borderColor: Colors.grayGreen,
     borderWidth: 1,
-    borderRadius: 15,
+    borderRadius: 20,
     width: "90%",
     height: 200,
     backgroundColor: Colors.lightGreen,
