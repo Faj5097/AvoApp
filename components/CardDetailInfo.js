@@ -12,6 +12,18 @@ function getImgSource(imgDesc) {
       return require("../assets/images/Emission_A1.png");
     case "A1_Origin":
       return require("../assets/images/Origin_A1.png");
+    case "A2_Farming":
+      return require("../assets/images/Farming_A2.png");
+    case "A2_Emission":
+      return require("../assets/images/Emission_A2.png");
+    case "A2_Origin":
+      return require("../assets/images/Origin_A2.png");
+    case "A3_Farming":
+      return require("../assets/images/Farming_A3.png");
+    case "A3_Emission":
+      return require("../assets/images/Emission_A3.png");
+    case "A3_Origin":
+      return require("../assets/images/Origin_A3.png");
     default:
       return require("../assets/images/Origin_A1.png");
   }
