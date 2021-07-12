@@ -10,11 +10,36 @@ import PersonalRating from "./PersonalRating";
 
 import { AVOCADOS } from "../data/dummy-data";
 
+function getImgSource(imgDesc) {
+  switch (imgDesc) {
+    case "A1_Image":
+      return require("../assets/images/Image_A1.jpg");
+    case "A2_Image":
+      return require("../assets/images/Image_A2.jpg");
+    case "A3_Image":
+      return require("../assets/images/Image_A3.jpg");
+    default:
+      return require("../assets/images/Image_A1.jpg");
+  }
+}
+
+const getCircularProgressColor = (ecoScore) => {
+  if (ecoScore < 50) {
+    return Colors.scoreRed;
+  } else if (ecoScore <= 75) {
+    return Colors.scoreOrange;
+  } else {
+    return Colors.scoreGreen;
+  }
+};
+
 const ScoreSummary = (props) => {
   const [avoAddedStats, setAvoAddedStats] = React.useState(false);
   const [avoAddedFavorites, setAvoAddedFavorites] = React.useState(false);
 
   const avocado = AVOCADOS.find((meal) => meal.id === props.avoId);
+
+  let imgSource = getImgSource(avocado.image);
 
   return (
     <View style={styles.container}>
@@ -45,9 +70,10 @@ const ScoreSummary = (props) => {
       </View>
       <View style={styles.imageContainer}>
         <ImageBackground
-          source={{
-            uri: "https://images.unsplash.com/photo-1581264378232-a55a770b9b83?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
-          }}
+          // source={{
+          //   uri: "https://images.unsplash.com/photo-1581264378232-a55a770b9b83?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80"
+          // }}
+          source={imgSource}
           style={{
             width: "100%",
             height: "100%",
@@ -66,7 +92,7 @@ const ScoreSummary = (props) => {
                   width={12}
                   fill={avocado.ecoScore}
                   rotation={0}
-                  tintColor={Colors.scoreOrange}
+                  tintColor={getCircularProgressColor(avocado.ecoScore)}
                 >
                   {() => (
                     <View
@@ -165,7 +191,7 @@ const ScoreSummary = (props) => {
         </ImageBackground>
       </View>
       <View style={styles.ratingContainer}>
-        <PersonalRating />
+        <PersonalRating showModalStars={props.showModalStars} />
       </View>
     </View>
   );
@@ -178,7 +204,7 @@ styles = StyleSheet.create({
     backgroundColor: Colors.lightYellow
   },
   headerContainer: {
-    flex: 4,
+    height: 65,
     flexDirection: "row",
     width: "90%"
   },

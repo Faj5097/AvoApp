@@ -3,6 +3,7 @@ class Avocado {
     id,
     store,
     company,
+    image,
     ecoScore,
     ecoComRank,
     ecoPersRank,
@@ -22,6 +23,7 @@ class Avocado {
     this.id = id;
     this.store = store;
     this.company = company;
+    this.image = image;
     this.ecoScore = ecoScore;
     this.ecoComRank = ecoComRank;
     this.ecoPersRank = ecoPersRank;

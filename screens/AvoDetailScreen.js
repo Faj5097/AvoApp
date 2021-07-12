@@ -1,11 +1,24 @@
 import React from "react";
 import { View, Text, StyleSheet, ScrollView } from "react-native";
+import { AnimatedCircularProgress } from "react-native-circular-progress";
 
+import DefaultText from "../components/DefaultText";
+import Colors from "../constants/colors";
 import CardDetailInfo from "../components/CardDetailInfo";
 import Card from "../components/Card";
 import StoreTitle from "../components/StoreTitle";
 
 import { AVOCADOS } from "../data/dummy-data";
+
+const getCircularProgressColor = (ecoScore) => {
+  if (ecoScore < 50) {
+    return Colors.scoreRed;
+  } else if (ecoScore <= 75) {
+    return Colors.scoreOrange;
+  } else {
+    return Colors.scoreGreen;
+  }
+};
 
 const AvoDetailScreen = (props) => {
   const avoId = props.navigation.getParam("avoId");
@@ -14,8 +27,41 @@ const AvoDetailScreen = (props) => {
   return (
     <ScrollView style={{ width: "100%", backgroundColor: "white" }}>
       <View style={styles.screen}>
-        <View style={styles.header}>
-          <StoreTitle store={avocado.store} company={avocado.company} />
+        <View style={styles.headerContainer}>
+          <View style={styles.header}>
+            <StoreTitle store={avocado.store} company={avocado.company} />
+          </View>
+          <View style={styles.ecoScoreChart}>
+            <AnimatedCircularProgress
+              size={55}
+              width={8}
+              fill={avocado.ecoScore}
+              rotation={0}
+              tintColor={getCircularProgressColor(avocado.ecoScore)}
+            >
+              {() => (
+                <View
+                  style={{
+                    flex: 1,
+                    backgroundColor: "white",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    width: "100%",
+                    opacity: 1
+                  }}
+                >
+                  <DefaultText
+                    style={{
+                      fontSize: 14,
+                      fontWeight: "bold"
+                    }}
+                  >
+                    {avocado.ecoScore}%
+                  </DefaultText>
+                </View>
+              )}
+            </AnimatedCircularProgress>
+          </View>
         </View>
         <View style={styles.cards}>
           <Card style={{ height: 170, marginVertical: 10 }}>
@@ -58,9 +104,8 @@ const styles = StyleSheet.create({
     alignItems: "center"
   },
   header: {
-    flex: 1,
-    width: "90%",
-    padding: 10
+    flex: 3
+    // padding: 10
   },
   cards: {
     flex: 8,
@@ -69,6 +114,17 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     width: "100%"
+  },
+  headerContainer: {
+    height: 65,
+    flexDirection: "row",
+    width: "90%"
+  },
+  ecoScoreChart: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    margin: 10
   }
 });
 

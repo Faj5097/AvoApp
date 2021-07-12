@@ -20,6 +20,7 @@ const AvoScreen = (props) => {
 
   const [modalStatsVisible, setModalStatsVisible] = useState(false);
   const [modalFavoritesVisible, setModalFavoritesVisible] = useState(false);
+  const [modalStarsVisible, setModalStarsVisible] = useState(false);
   const [avoAddedStats, setAvoAddedStats] = useState(false);
   const [avoAddedFavorites, setAvoAddedFavorites] = useState(false);
 
@@ -37,6 +38,13 @@ const AvoScreen = (props) => {
     setModalFavoritesVisible(true);
     setTimeout(() => {
       setModalFavoritesVisible(false);
+    }, 700);
+  };
+
+  const handleModalStars = (added) => {
+    setModalStarsVisible(true);
+    setTimeout(() => {
+      setModalStarsVisible(false);
     }, 700);
   };
 
@@ -76,6 +84,15 @@ const AvoScreen = (props) => {
     }
   };
 
+  const modalViewStars = () => {
+    return (
+      <View style={styles.modalView}>
+        <Text style={styles.modalText}>Thanks for your feedback!</Text>
+        <Ionicons name="ios-star-sharp" size={40} color="black" />
+      </View>
+    );
+  };
+
   return (
     <View style={styles.screen}>
       <Modal
@@ -100,11 +117,23 @@ const AvoScreen = (props) => {
       >
         <View style={styles.centeredView}>{modalViewFavorite()}</View>
       </Modal>
+      <Modal
+        animationType="fade"
+        transparent={true}
+        visible={modalStarsVisible}
+        onRequestClose={() => {
+          Alert.alert("Modal has been closed.");
+          setModalStarsVisible(!modalVisible);
+        }}
+      >
+        <View style={styles.centeredView}>{modalViewStars()}</View>
+      </Modal>
       <View style={styles.rating}>
         <ScoreSummary
           avoId={avoId}
           showModalStats={handleModalAddedToStats}
           showModalFavorites={handleModalAddedToFavorites}
+          showModalStars={handleModalStars}
         />
       </View>
       <View style={styles.score}>

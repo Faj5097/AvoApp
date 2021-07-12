@@ -7,7 +7,8 @@ const StoreTitle = (props) => {
   return (
     <View style={styles.container}>
       <View style={styles.storeContainer}>
-        <Text style={styles.store}>{props.store.toUpperCase() + " /"}</Text>
+        {/* <Text style={styles.store}>{props.store.toUpperCase() + " /"}</Text> */}
+        <Text style={styles.store}>{props.store.toUpperCase()}</Text>
       </View>
       <View style={styles.companyContainer}>
         <DefaultText>{props.company}</DefaultText>
@@ -19,14 +20,11 @@ const StoreTitle = (props) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    flexDirection: "row"
+    marginLeft: 10
+    // flexDirection: "row"
   },
   storeContainer: {
-    justifyContent: "flex-end",
-    alignItems: "flex-end",
-    paddingLeft: 10,
-    marginRight: 10,
-    marginBottom: 10
+    flex: 5
   },
   store: {
     fontSize: 30,
@@ -34,9 +32,7 @@ const styles = StyleSheet.create({
     fontFamily: "roboto-black"
   },
   companyContainer: {
-    flex: 1,
-    justifyContent: "flex-end",
-    marginBottom: 14
+    flex: 4
   },
   company: {
     fontSize: 15

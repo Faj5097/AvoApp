@@ -119,9 +119,8 @@ const styles = StyleSheet.create({
     flex: 5
   },
   middleContentText: {
-    flex: 1,
-    paddingTop: 10,
-    fontSize: 12
+    fontSize: 12,
+    paddingTop: 5
   },
   circle: {
     justifyContent: "flex-start",
