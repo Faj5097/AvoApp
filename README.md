@@ -3,8 +3,9 @@
 ## Scan your Avocado and get the EcoScore of it!
 
 <p float="center">
-  <img src="https://github.com/Faj5097/AvoApp/blob/main/assets/screenShots/AvoScreen.jpg" width="200" >
-  <img src="https://github.com/Faj5097/AvoApp/blob/main/assets/screenShots/AvoDetailScreen.jpg" width="200" >
+  <img src="https://github.com/Faj5097/AvoApp/blob/main/assets/screenShots/SearchScreen.jpg" height="400" >
+  <img src="https://github.com/Faj5097/AvoApp/blob/main/assets/screenShots/AvoScreen.jpg" height="400" >
+  <img src="https://github.com/Faj5097/AvoApp/blob/main/assets/screenShots/AvoDetailScreen.jpg" height="400" >
 </p>
 
 This project was bootstrapped with [Expo Init App](https://docs.expo.io/get-started/create-a-new-app/).
