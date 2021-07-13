@@ -1,4 +1,5 @@
 <img src="https://github.com/Faj5097/AvoApp/blob/main/assets/screenShots/AvoDetailScreen.jpg" width="231" height="480">
+<img src="https://github.com/Faj5097/AvoApp/blob/main/assets/screenShots/AvoDetailScreen.jpg" width="231" height="480">
 
 This project was bootstrapped with [Expo Init App](https://docs.expo.io/get-started/create-a-new-app/).
 
