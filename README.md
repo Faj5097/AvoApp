@@ -1,3 +1,5 @@
+![alt text](https://github.com/Faj5097/AvoApp/blob/main/assets/screenShots/AvoDetailScreen.jpg?raw=true)
+
 This project was bootstrapped with [Expo Init App](https://docs.expo.io/get-started/create-a-new-app/).
 
 Below you'll find information about performing common tasks.
