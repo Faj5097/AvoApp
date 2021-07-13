@@ -1,3 +1,7 @@
+# Avo App
+
+## Scan your Avocado and get the EcoScore of it!
+
 <p float="center">
   <img src="https://github.com/Faj5097/AvoApp/blob/main/assets/screenShots/AvoScreen.jpg" width="200" >
   <img src="https://github.com/Faj5097/AvoApp/blob/main/assets/screenShots/AvoDetailScreen.jpg" width="200" >
