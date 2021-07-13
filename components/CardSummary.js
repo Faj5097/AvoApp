@@ -31,8 +31,8 @@ const CardSummary = (props) => {
 
   const showEcoScoreAlert = () =>
     Alert.alert(
-      "Eco Score Information",
-      "This is a detailed eco score alert",
+      "Eco Score",
+      "The Eco Score summarizes how sustainable an Avocado is based on information about origin, associated gas emissions and farming condtions.\n\nThe traffic-light color coding visualizes the score: \n\t100-75 = Green\n\t75-50 = Yellow\n\t50-0 = Red.",
       [
         {
           text: "OK",

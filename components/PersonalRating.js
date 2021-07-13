@@ -10,8 +10,8 @@ const PersonalRating = (props) => {
 
   const showRankingAlert = () =>
     Alert.alert(
-      "Ranking Information",
-      "This is a detailed ranking information",
+      "Community Score",
+      "The Community Score is the average rating of our TheDreamers-Community regarding this specific avocado.",
       [
         {
           text: "OK",
